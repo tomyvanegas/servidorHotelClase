@@ -16,6 +16,7 @@ export class Servidor{
     constructor(){
         this.app = express() // definiendo atributo o variable
         this.habilitarjson()
+        this.conectarConBd()
         this.atenderPeticiones() //atiendo las peticiones del cliente
     }
 
@@ -35,7 +36,7 @@ export class Servidor{
     encenderServidor(){
         //levantando el servidor 
         this.app.listen(process.env.PORT,function(){
-            console.log("servidor corriendo"+ process.env.PORT)
+            console.log("servidor corriendo" + process.env.PORT)
         })
     }
 
