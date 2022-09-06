@@ -25,6 +25,6 @@ routers.put('/viajescomfama/v1/habitacion/:id',controllerHabitacion.editarHabita
 
 routers.get('/viajescomfama/v1/reservas/',controladorReserva.buscarReserva)
 routers.get('/viajescomfama/v1/reservas/:id',controladorReserva.buscarReservaPorId)
-routers.post('/viajescomfama/v1/reserva',controladorReserva.agregarReserva)
+routers.post('/viajescomfama/v1/reserva/',controladorReserva.agregarReserva)
 routers.put('/viajescomfama/v1/reserva/:id',controladorReserva.editarReserva)
-routers.delete('/viajescomfama/v1/reservadel/:id',controladorReserva.eliminar)
+routers.delete('/viajescomfama/v1/reserva/:id',controladorReserva.eliminar)

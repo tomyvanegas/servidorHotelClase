@@ -6,7 +6,7 @@ export class ControllerHabitacion{
 
     // buscar habitaciones
 
-    buscarHabitaciones(request,response){
+    async buscarHabitaciones(request,response){
         
         // llamo al servicio 
 
@@ -18,7 +18,7 @@ export class ControllerHabitacion{
             response.status(200).json({
             
                 mensaje:"exito en la consulta",
-                datos: serviciosHabitacion.buscarTodas()
+                datos: await serviciosHabitacion.buscarTodas()
 
             })
 
@@ -34,7 +34,7 @@ export class ControllerHabitacion{
 
     // buscar habitacion por id
 
-    buscarHabitacionPorId(request,response){
+    async buscarHabitacionPorId(request,response){
         let identificador = request.params.id
         
         // llamo al servicio habitaciones
@@ -49,7 +49,7 @@ export class ControllerHabitacion{
             response.status(200).json({
                
                 mensaje:"exito en la consulta "+ identificador,
-                datos: serviciosHabitacion.buscarPorId(identificador)
+                datos: await serviciosHabitacion.buscarPorId(identificador)
 
                 
             })
@@ -66,7 +66,7 @@ export class ControllerHabitacion{
 
     // agregar habitacion
 
-    agregarHabitacion(request,response){
+    async agregarHabitacion(request,response){
         let cuerpo = request.body
         
         // llamar al servicio habitaciones
@@ -76,7 +76,7 @@ export class ControllerHabitacion{
         //Intento resolver peticion
         try{
 
-            serviciosHabitacion.agregar(cuerpo)
+           await serviciosHabitacion.agregar(cuerpo)
 
             response.status(200).json({
 
@@ -98,7 +98,7 @@ export class ControllerHabitacion{
 
     // editar habitacion
 
-    editarHabitacion(request,response){
+    async editarHabitacion(request,response){
         
         //recibir el id 
         let id = request.params.id
@@ -113,7 +113,7 @@ export class ControllerHabitacion{
         //Intento resolver peticion
         try{
 
-            serviciosHabitacion.actualizar(id,datos)
+            await serviciosHabitacion.actualizar(id,datos)
 
             response.status(200).json({
 
@@ -135,7 +135,7 @@ export class ControllerHabitacion{
 
     // eliminar habitacion
 
-    eliminarReserva(request,response){
+    /*async eliminarReserva(request,response){
          
         //Intento resolver peticion
         try{
@@ -149,5 +149,5 @@ export class ControllerHabitacion{
 
             })
         }
-    }
+    }*/
 }
