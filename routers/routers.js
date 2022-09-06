@@ -4,6 +4,9 @@ import express from 'express'
 import {ControllerHabitacion} from '../controller/ControllerHabitacion.js'
 let controllerHabitacion=new ControllerHabitacion()
 
+import { ControllerReserva } from '../controller/ControllerReservas.js';
+let controladorReserva=new ControllerReserva();
+
 //variable para personalizar las rutas (ENDPOINTS) de mis servicios
 export let routers=express.Router()
 
@@ -18,15 +21,10 @@ routers.post('/viajescomfama/v1/habitacion',controllerHabitacion.agregarHabitaci
 routers.put('/viajescomfama/v1/habitacion/:id',controllerHabitacion.editarHabitacion)
 
 
+//ENDPOINTS PARA LOS SERVICIOS DE RESERVA
 
-
-//ENDPOINTS PARA LOS SERVICIOS ASOCIADOS A LAS RESERVAS
-/*rutas.post('viajescomfama/v1/reserva',function (req, res) {
-    res.send('Hello World')
-})
-rutas.put('viajescomfama/v1/reserva/:id',function (req, res) {
-    res.send('Hello World')
-})
-rutas.delete('viajescomfama/v1/cancelacion/:id',function (req, res) {
-    res.send('Hello World')
-})*/
+routers.get('/viajescomfama/v1/reservas/',controladorReserva.buscarReserva)
+routers.get('/viajescomfama/v1/reservas/:id',controladorReserva.buscarReservaPorId)
+routers.post('/viajescomfama/v1/reserva',controladorReserva.agregarReserva)
+routers.put('/viajescomfama/v1/reserva/:id',controladorReserva.editarReserva)
+routers.delete('/viajescomfama/v1/reservadel/:id',controladorReserva.eliminar)

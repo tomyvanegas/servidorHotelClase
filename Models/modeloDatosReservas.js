@@ -32,4 +32,4 @@ const Reservas = new Schema({
     })
 
 
-const modeloReservas = mongoose.model("reservas",Reservas)
+export const modeloReservas = mongoose.model("reservas",Reservas)
